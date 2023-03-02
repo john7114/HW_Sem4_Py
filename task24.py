@@ -22,21 +22,12 @@ list_a = []
 for i in range(N):
     list_a.append(randint(1, 50))
 
-# В условии сказано, то куст указан во входном файле грядки
-# следовательно куст, с которого заходит собирающий модуль,
-# выбран в этой программе случайно от 1 до N(кол-во кустов в грядке)
-i = randint(0, N)
+sum_list = []
 
-sum_blueberry = 0
+for i in range(len(list_a)):
+    sum_list.append(list_a[i-2] + list_a[i-1] + list_a[i])
 
-if i == 0:
-    sum_blueberry = sum(list_a[0:2])
-elif i == len(list_a)-1:
-    sum_blueberry = sum(list_a[i-1: i+1])
-else:
-    sum_blueberry = sum(list_a[i-1:i+2])
+max_q = max(sum_list)
 
 print(f"Грядка - {list_a}")
-# Подсчёт кустов по грядке, а не с индекса списка, поэтому +1 .
-print(f"Куст - {i+1}")
-print(sum_blueberry)
+print(max_q)
